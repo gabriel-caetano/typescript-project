@@ -4,7 +4,7 @@
  * duration - number
  * educator - string
  */
-export interface course {
+export interface Course {
   name: string;
   duration?: number;
   educator: string;
@@ -12,7 +12,7 @@ export interface course {
 
 
 class CreateCourseService {
-  execute({ name, duration = 8, educator }: course) {
+  execute({ name, duration = 8, educator }: Course) {
     console.log(name, duration, educator);
   }
 }
