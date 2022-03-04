@@ -4,9 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const routes_1 = require("./routes");
 const app = (0, express_1.default)();
-app.get('/', routes_1.createCourse);
-app.listen(3000, () => {
-    console.log('Server is listening on port 3000');
+app.get('/', (req, res) => {
+    console.log('Hello World!');
+    const a = {
+        b: 'c',
+        c: 'd',
+        d: 'e',
+    };
+    return res.send('Hello World!');
 });
+app.listen(3000, () => console.log('running...'));
