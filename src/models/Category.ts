@@ -1,13 +1,14 @@
 import { v4 as uuidV4 } from 'uuid'
+import { ICreateCategoryDTO } from '../repositories/ICategoriesRepository'
 
 class Category {
   id?: string
   name: string
-  description: string
+  description: string | undefined
   created_at: Date
   updated_at: Date
 
-  constructor({ name, description }: { name: string; description: string }) {
+  constructor({ name, description }: ICreateCategoryDTO) {
     if (!this.id) {
       this.id = uuidV4()
       this.created_at = new Date()

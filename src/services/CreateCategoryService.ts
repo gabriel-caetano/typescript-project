@@ -15,3 +15,5 @@ class CreateCategoryService {
     this.categoryRepository.create({ name, description })
   }
 }
+
+export { CreateCategoryService }
