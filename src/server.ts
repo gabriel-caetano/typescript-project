@@ -1,8 +1,8 @@
 import express from 'express'
-import { categoriesRoutes } from './routes/categories.routes'
+import { usersRoutes } from './routes/user.routes'
 const app = express()
 
 app.use(express.json())
-app.use('/categories', categoriesRoutes)
+app.use('/users', usersRoutes)
 
 app.listen(3000, () => console.log('running...'))
