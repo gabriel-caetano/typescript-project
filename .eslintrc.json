@@ -1,44 +1,44 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "prettier"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "quotes": [
+      "error",
+      "single",
+      "avoid-escape"
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "prettier",
-        "@typescript-eslint"
+    "comma-dangle": [
+      "error",
+      "always-multiline"
     ],
-    "rules": {
-        "quotes": [
-            "error",
-            "single",
-            "avoid-escape"
-        ],
-        "comma-dangle": [
-            "error",
-            "always-multiline"
-        ],
-        "prettier/prettier": [
-            "error"
-        ],
-        "@typescript-eslint/naming-convention": [
-            "error",
-            {
-                "selector": "variable",
-                "format": [
-                    "snake_case",
-                    "camelCase",
-                    "UPPER_CASE",
-                    "PascalCase"
-                ]
-            }
+    "prettier/prettier": [
+      "error"
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": [
+          "snake_case",
+          "camelCase",
+          "UPPER_CASE",
+          "PascalCase"
         ]
-    }
+      }
+    ]
+  }
 }
