@@ -1,8 +1,10 @@
 import type { Knex } from 'knex'
 import dotenv from 'dotenv'
+import path from 'path'
 dotenv.config()
 
 // Update with your config settings.
+console.log('test')
 
 const config: { [key: string]: Knex.Config } = {
   development: {
@@ -19,7 +21,9 @@ const config: { [key: string]: Knex.Config } = {
       max: 10,
     },
     migrations: {
+      directory: path.resolve(__dirname, 'src', 'database', 'migrations'),
       tableName: 'knex_migrations',
+      extension: 'ts',
     },
   },
 }
