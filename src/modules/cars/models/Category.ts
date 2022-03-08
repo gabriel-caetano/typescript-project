@@ -1,5 +1,5 @@
 import { v4 as uuidV4 } from 'uuid'
-import { ICreateCategoryDTO } from '../repositories/ICategoriesRepository'
+import { ICreateCategoryDTO } from '../repositories/ICategoryRepository'
 
 class Category {
   id?: string

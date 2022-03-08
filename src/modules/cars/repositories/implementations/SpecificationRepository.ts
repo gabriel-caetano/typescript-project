@@ -1,8 +1,21 @@
-import { Specification } from '../models/Specification'
-import { ICreateSpecificationDTO, ISpecificationRepository } from './ISpecificationRepository'
+import { Specification } from '../../models/Specification'
+import { ICreateSpecificationDTO, ISpecificationRepository } from '../ISpecificationRepository'
 
 class SpecificationRepository implements ISpecificationRepository {
-  private specifications: Specification[] = []
+  private specifications: Specification[]
+
+  private static INSTANCE: SpecificationRepository
+  private constructor() {
+    this.specifications = []
+  }
+
+  public static getInstance(): SpecificationRepository {
+    if (!SpecificationRepository.INSTANCE) {
+      SpecificationRepository.INSTANCE = new SpecificationRepository()
+    }
+    return SpecificationRepository.INSTANCE
+  }
+
   create({ name, description }: ICreateSpecificationDTO): void {
     const specification = new Specification()
     Object.assign(specification, {
@@ -11,7 +24,7 @@ class SpecificationRepository implements ISpecificationRepository {
       created_at: new Date(),
       updated_at: new Date(),
     })
-    this.specifications.push(new Specification())
+    this.specifications.push(specification)
   }
 
   list(): Specification[] {
@@ -20,7 +33,6 @@ class SpecificationRepository implements ISpecificationRepository {
 
   findByName(name: string): Specification {
     const specification = this.specifications.find(specification => specification.name === name)
-    if (!specification) throw new Error('Specification not found')
     return specification
   }
 }

@@ -1,10 +1,19 @@
-import { ICategoriesRepository, ICreateCategoryDTO } from './ICategoriesRepository'
-import { Category } from '../models/Category'
+import { ICategoryRepository, ICreateCategoryDTO } from '../ICategoryRepository'
+import { Category } from '../../models/Category'
 
-class CategoryRepository implements ICategoriesRepository {
+class CategoryRepository implements ICategoryRepository {
   private categories: Category[]
-  constructor() {
+
+  private static INSTANCE: CategoryRepository
+  private constructor() {
     this.categories = []
+  }
+
+  public static getInstance(): CategoryRepository {
+    if (!CategoryRepository.INSTANCE) {
+      CategoryRepository.INSTANCE = new CategoryRepository()
+    }
+    return CategoryRepository.INSTANCE
   }
 
   create({ name, description }: ICreateCategoryDTO): void {
@@ -24,7 +33,6 @@ class CategoryRepository implements ICategoriesRepository {
 
   findByName(name: string): Category | undefined {
     const category = this.categories.find(category => category.name === name)
-    if (!category) throw new Error('Category not found')
     return category
   }
 }
