@@ -6,13 +6,10 @@ class Specification {
   name: string
   description: string | undefined
   created_at: Date
-  constructor({ name, description }: ICreateSpecificationDTO) {
+  constructor() {
     if (!this.id) {
       this.id = uuidV4()
-      this.created_at = new Date()
     }
-    this.name = name
-    this.description = description
   }
 }
 

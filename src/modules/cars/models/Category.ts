@@ -8,13 +8,16 @@ class Category {
   created_at: Date
   updated_at: Date
 
-  constructor({ name, description }: ICreateCategoryDTO) {
+  constructor() {
     if (!this.id) {
       this.id = uuidV4()
-      this.created_at = new Date()
     }
+  }
+
+  create({ name, description }: ICreateCategoryDTO) {
     this.name = name
     this.description = description
+    this.created_at = new Date()
     this.updated_at = new Date()
   }
 }
