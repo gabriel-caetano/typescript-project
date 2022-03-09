@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "migration-make": "npx knex migrate:make --migrations-directory ./src/migrations -x ts",
-    "migration-run": "npx knex migrate:latest --migrations-directory ./src/migrations"
+    "migration-make": "npx knex migrate:make",
+    "migration-run": "npx knex migrate:latest"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
